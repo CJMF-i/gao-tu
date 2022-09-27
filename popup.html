@@ -7,16 +7,100 @@
     <title>Document</title>
     <script src="js/zipjs.js"></script>
     <script src="js/FileSaver.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body{
+            height: 600px;
+        }
+        #btn {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 0;
+        }
+        #btn span {
+            background: #fff;
+            display: inline-block;
+            width: 50%;
+            height: 80px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            text-align: center;
+            line-height: 80px;
+            cursor: pointer;
+        }
+        #allSelect {
+            position: fixed;
+            right: 0;
+            bottom: 80px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+        #main {
+            width: 600px;
+            min-height: 600px;
+            padding-bottom: 80px;
+            font-size: 0;
+        }
+        #main::after {
+            content: "";
+            display: block;
+            clear:both;
+        }
+        #main h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+        #main div{
+            float: left;
+            width: 200px;
+            height: 140px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        #main div.activation::before{
+            content: "";
+            display: inline-block;
+            height: 32px;
+            width: 32px;
+            background: url("img/gouxuan.png") no-repeat 100% 100%;
+            position: absolute;
+            bottom: 15px;
+            right: 10px;
+        }
+        #main div img {
+            width: 100%;
+            max-height: 100px;
+        }
+        #main div span {
+            display: block;
+            line-height: 20px;
+            font-size: 16px;
+        }
+
+    </style>
 </head>
 <body>
-    <div id="gao" style="width: 100px; cursor: pointer;">
-        <div id="start" class="gao-img"><img src="img/start.gif" style="width: 100%" alt=""></div>
-        <div id="error" class="gao-img" style="display: none;"><img src="img/error.gif" style="width: 100%" alt=""></div>
-        <div id="loading" class="gao-img" style="display: none;"><img src="img/loading.gif" style="width: 100%" alt=""></div>
-        <div id="biegao" class="gao-img" style="display: none;"><img src="img/biegao.gif" style="width: 100%" alt=""></div>
-        <div id="end" class="gao-img" style="display: none;"><img src="img/end.gif" style="width: 100%" alt=""></div>
-        <p id="gao-text" style="text-align: center; line-height: 1.5;">点我搞他!!!</p>
+    <div id="main">
+
     </div>
+    <div id="btn">
+        <span id="getImg">获取当前网页图片</span>
+        <span id="download">开始下载</span>
+    </div>
+    <div id="allSelect">全选/取消全选</div>
     <script src="js/popup.js"></script>
 </body>
 </html>
