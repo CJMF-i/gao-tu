@@ -5,7 +5,7 @@
 现已支持京东、淘宝、天猫、coupang、1688、naver、gmarket
 
 #### 使用教程
-1. 当前页面点击下载zip，并解压
+1. 当前页面点击下载zip，并解压，如果想下以前版本，可以左边选择
 ![img_1.png](img/img_9.png)
 2. 打开谷歌浏览器，右上角三个点，点击设置，然后打开关于Chrome
 ![img.png](img/img.png)
