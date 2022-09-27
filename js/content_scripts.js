@@ -1,4 +1,4 @@
-console.log("搞图宝已经注入成功")
+console.log("搞图已经注入成功")
 
 function zhu() {
     // 主图

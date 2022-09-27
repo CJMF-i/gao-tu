@@ -1,7 +1,7 @@
 {
-    "name": "搞图宝",
+    "name": "搞图",
     "version": "2.0.0",
-    "description": "搞图宝,专门获取各大电商平台详情页面主图和详情图的浏览器插件,现已支持京东、淘宝、天猫、coupang、1688、naver、gmarket",
+    "description": "搞图,专门获取各大电商平台详情页面主图和详情图的浏览器插件,现已支持京东、淘宝、天猫、coupang、1688、naver、gmarket",
     "manifest_version": 3,
     "author": "林龙 邮箱: 473649383@qq.com",
     "action": {
