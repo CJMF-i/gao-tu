@@ -4,35 +4,26 @@
 搞图宝,专门获取各大电商平台详情页面主图和详情图的浏览器插件
 现已支持京东、淘宝、天猫、coupang、1688、naver、gmarket
 
-#### 软件架构
-软件架构说明
-
-
 #### 安装教程
+搞图宝使用教程
+1.先解压缩gao-tu-bao.zip
+2.打开谷歌浏览器，右上角三个点，点击设置，然后打开关于Chrome
+![img.png](img/img.png)
+3.如果当前版本最前面的数字，小于88，就要把解压后的文件里面的
+![img_1.png](img/img_1.png)
+4.打开谷歌浏览器，右上角的三个点，点击后打开设置界面
+![img_2.png](img/img_2.png)
+5.打开拓展程序页面后，点击右上角开启开发者模式，然后就会出现加载以解压的扩展程序按钮
+![img_3.png](img/img_3.png)
+6.点击加载以解压的扩展程序后，选择插件的根目录
+![img_4.png](img/img_4.png)
+7.然后扩展程序页面就会出现搞图宝插件了，如果未开启，记得点击开启
+![img_5.png](img/img_5.png)
+8.开启后浏览器右上角会出现拓展程序图标，我们把它钉在菜单栏上
+![img_6.png](img/img_6.png)
+9.然后进入各大电商平台详情页上，点击插件图标即可使用
+![img_7.png](img/img_7.png)
+10.如果有不兼容的页面，可以联系我，或者想要支持新的平台也可以联系我
+邮箱：473649383@qq.com
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
