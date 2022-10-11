@@ -10,6 +10,12 @@ function zhu() {
             imgUrl.push({"src": imgs[i].src, "name": "主图_" + (i + 1)});
         }
     }
+    if (_url.indexOf("alibaba.com") > -1) {
+        var imgs = document.querySelectorAll(".main-layout .main-list img");
+        for (let i = 0; i < imgs.length; i++) {
+            imgUrl.push({"src": imgs[i].src.replace("100x100xz.jpg", "720x720q50.jpg"), "name": "主图_" + (i + 1)});
+        }
+    }
     if (_url.indexOf("coupang.com") > -1) {
         var eles = document.getElementsByClassName("prod-image__item");
         for (let i = 0; i < eles.length; i++) {
@@ -60,6 +66,13 @@ function xiang() {
         for (let i = 0; i < ele.length; i++) {
             var imgUrl = ele[i].getAttribute("data-lazyload-src") ? ele[i].getAttribute("data-lazyload-src") : ele[i].src;
             result.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
+        }
+    }
+    if (_url.indexOf("alibaba.com") > -1) {
+        let ele = document.getElementById("module_product_specification").getElementsByTagName("img");
+        for (let i = 0; i < ele.length; i++) {
+            let url = ele[i].getAttribute("data-src")
+            result.push({"src": url.startsWith("http") ? url : "https:" + url, "name": "详情图_" + (i + 1)});
         }
     }
     if (_url.indexOf("coupang.com") > -1) {
