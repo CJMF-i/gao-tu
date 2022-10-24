@@ -1,3 +1,6 @@
+let kaishi = [];
+let jieshu = [];
+
 let btn = document.getElementById('getImg');
 let status = 0;
 // 点击按钮
@@ -44,7 +47,7 @@ btn.onclick = function (e) {
             }
         });
     } else {
-        // updateStatus("loading", "在搞呢,莫急!!!");
+        showMessage("在下载中哦，不要着急～～", 1000, 9);
     }
 }
 
@@ -57,6 +60,11 @@ document.getElementById('allSelect').onclick = function () {
             flag = true;
             break;
         }
+    }
+    if (flag) {
+        showMessage("Yes，全部选中了～～喵～", 1000, 9);
+    } else {
+        showMessage("哦 No，全部取消选中了～～", 1000, 9);
     }
     for (let i = 0; i < items.length; i++) {
         if (flag) {
@@ -80,7 +88,7 @@ btn2.onclick = function () {
             saveToZip(zip, imgUrls, 0)
         } catch (e) {
             status = 0;
-            // updateStatus("error", "完了,搞错了!!!");
+            showMessage("哎呀，下载出错了～～", 2000, 9);
         }
     }
 };
@@ -98,7 +106,7 @@ function saveToZip(zip, imgUrls, index) {
             zip.generateAsync({type: "blob"}).then(function (content) {
                 saveAs(content, "搞.zip");
                 status = 0;
-                // updateStatus("end", "搞完了,还搞吗?");
+                showMessage("咯，给你，下载好了～～", 2000, 9);
             });
         } else {
             saveToZip(zip, imgUrls, index);
@@ -139,4 +147,33 @@ function updateStatus(imgId, text) {
     }
     document.getElementById(imgId).style.display = "block";
     document.getElementById("gao-text").innerText = text;
+}
+
+var messageTimer;
+
+function showMessage(text, timeout, priority) {
+    if (!text || (sessionStorage.getItem("waifu-text") && sessionStorage.getItem("waifu-text") > priority)) return;
+    if (messageTimer) {
+        clearTimeout(messageTimer);
+        messageTimer = null;
+    }
+    text = randomSelection(text);
+    sessionStorage.setItem("waifu-text", priority);
+    let tips = document.getElementById("waifu-tips");
+    tips.innerHTML = text;
+    tips.classList.add("waifu-tips-active");
+    messageTimer = setTimeout(() => {
+        sessionStorage.removeItem("waifu-text");
+        tips.classList.remove("waifu-tips-active");
+    }, timeout);
+}
+
+function randomSelection(obj) {
+    return Array.isArray(obj) ? obj[Math.floor(Math.random() * obj.length)] : obj;
+}
+
+// 生成0到x减一的随机整数
+function random(x) {
+    x--;
+    Math.round(Math.random() * x)
 }

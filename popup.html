@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>搞图宝</title>
+    <link rel="stylesheet" href="./live/font-awesome.min.css">
     <script src="js/zipjs.js"></script>
     <script src="js/FileSaver.js"></script>
     <style>
@@ -16,10 +17,12 @@
         }
         body{
             height: 600px;
+            width: 485px;
+            margin-left: 300px;
         }
         #btn {
             position: fixed;
-            left: 0;
+            left: 300px;
             right: 0;
             bottom: 0;
             font-size: 0;
@@ -46,10 +49,11 @@
             cursor: pointer;
         }
         #main {
-            width: 600px;
+            width: 500px;
             min-height: 600px;
             padding-bottom: 80px;
             font-size: 0;
+            border-left: 1px solid #ddd;
         }
         #main::after {
             content: "";
@@ -63,8 +67,8 @@
         }
         #main div{
             float: left;
-            width: 200px;
-            height: 140px;
+            width: 160px;
+            height: 120px;
             padding: 10px;
             text-align: center;
             cursor: pointer;
@@ -92,6 +96,24 @@
         }
 
     </style>
+
+    <style>
+        #github svg {
+            transition: all 1s;
+            fill: #222;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+            width: 80px;
+            height: 80px;
+        }
+        #github:hover svg {
+            width: 120px;
+            height: 120px;
+        }
+    </style>
 </head>
 <body>
     <div id="main">
@@ -102,6 +124,7 @@
         <span id="download">开始下载</span>
     </div>
     <div id="allSelect">全选/取消全选</div>
+    <script src="./live/autoload.js"></script>
     <script src="js/popup.js"></script>
 </body>
 </html>
