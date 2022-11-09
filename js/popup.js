@@ -1,3 +1,4 @@
+var BasePath = "./live2";
 let kaishi = [];
 let jieshu = [];
 
