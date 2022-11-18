@@ -54,8 +54,8 @@ btn.onclick = function (e) {
 
 // 全选
 document.getElementById('allSelect').onclick = function () {
-    var items = document.getElementById('main').getElementsByTagName('div');
-    var flag = false;
+    var items = Array.from(document.getElementById('main').getElementsByTagName('div'));
+    var flag = items.filter(item => item.classList.contains('activation'));
     for (let i = 0; i < items.length; i++) {
         if (!items[i].classList.contains('activation')) {
             flag = true;
@@ -63,9 +63,9 @@ document.getElementById('allSelect').onclick = function () {
         }
     }
     if (flag) {
-        showMessage("Yes，全部选中了～～喵～", 1000, 9);
+        showMessage("<span>全选/取消</span>按钮要全部选中才会触发取消，如果目前没有全部选中，需要先全选，然后取消哦", 1000, 9);
     } else {
-        showMessage("哦 No，全部取消选中了～～", 1000, 9);
+        showMessage("已全部取消选中，快去挑选喜欢的图片吧", 1000, 9);
     }
     for (let i = 0; i < items.length; i++) {
         if (flag) {
@@ -139,42 +139,4 @@ function getCurrentTabId(callback) {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
         if (callback) callback(tabs.length ? tabs[0].id : null);
     });
-}
-
-function updateStatus(imgId, text) {
-    var imgs = document.getElementsByClassName("gao-img");
-    for (let i = 0; i < imgs.length; i++) {
-        imgs[i].style.display = "none";
-    }
-    document.getElementById(imgId).style.display = "block";
-    document.getElementById("gao-text").innerText = text;
-}
-
-var messageTimer;
-
-function showMessage(text, timeout, priority) {
-    if (!text || (sessionStorage.getItem("waifu-text") && sessionStorage.getItem("waifu-text") > priority)) return;
-    if (messageTimer) {
-        clearTimeout(messageTimer);
-        messageTimer = null;
-    }
-    text = randomSelection(text);
-    sessionStorage.setItem("waifu-text", priority);
-    let tips = document.getElementById("waifu-tips");
-    tips.innerHTML = text;
-    tips.classList.add("waifu-tips-active");
-    messageTimer = setTimeout(() => {
-        sessionStorage.removeItem("waifu-text");
-        tips.classList.remove("waifu-tips-active");
-    }, timeout);
-}
-
-function randomSelection(obj) {
-    return Array.isArray(obj) ? obj[Math.floor(Math.random() * obj.length)] : obj;
-}
-
-// 生成0到x减一的随机整数
-function random(x) {
-    x--;
-    Math.round(Math.random() * x)
 }

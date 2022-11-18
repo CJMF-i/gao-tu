@@ -36,11 +36,11 @@ var modelListB = {
 }
 
 var modelList = {
-    "sagiri": BasePath + "/models/sagiri/model.json",
+    "Kiana": BasePath + "/models/Kiana/model.json",
 }
 async function loadModel(modelName, message) {
     if (modelName === "") {
-        modelName = localStorage.getItem("modelName") === "" ? "sagiri" : localStorage.getItem("modelName");
+        modelName = localStorage.getItem("modelName") === "" ? "Kiana" : localStorage.getItem("modelName");
     }
     localStorage.setItem("modelName", modelName);
     showMessage(message, 4000, 10);
