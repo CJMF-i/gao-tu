@@ -25,7 +25,7 @@ function initWidget() {
 			<canvas id="live2d" width="800" height="800"></canvas>
 		</div>`);
     setTimeout(() => {
-        document.getElementById("waifu").style.bottom = 0;
+        document.getElementById("waifu").style.left = 0;
     }, 100);
 
     (function initModel() {
