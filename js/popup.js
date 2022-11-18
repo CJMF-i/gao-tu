@@ -86,7 +86,7 @@ btn2.onclick = function () {
         for (let i = 0; i < main.length; i++) {
             imgUrls.push({src: main[i].getElementsByTagName('img')[0].src, name: main[i].getElementsByTagName('span')[0].innerText})
         }
-        if (items.length === 0) {
+        if (imgUrls.length === 0) {
             showMessage("还没有获取网页图片呢，快去获取一下吧 ～～", 5);
             return;
         }
