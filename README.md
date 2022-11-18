@@ -12,7 +12,7 @@
 ### 依赖软件
 谷歌浏览器：[Google Chrome 网络浏览器](https://www.google.cn/intl/zh-CN/chrome/)
 
-搞图宝最新版下载：[点击下载搞图宝，无需登录](https://gitee.com/cjmf/gao-tu/releases/download/3.0.1/gao-tu-v3.zip)
+搞图宝最新版下载：[点击下载搞图宝，无需登录](https://gitee.com/cjmf/gao-tu/releases/download/3.0.1/gao-tu-v3.x.zip)
 
 ### 版本更新介绍
 v3.0.1: 相对与v2版本，新增了看板娘提示功能，今后2.x版本将不在维护，请优先使用3版本
