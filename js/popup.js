@@ -2,12 +2,16 @@ var BasePath = "./live2";
 
 let btn = document.getElementById('getImg');
 let status = 0;
+let zipName = "搞";
 // 点击按钮
 btn.onclick = function (e) {
     if (status === 0) {
         status = 1;
         doGao('开搞', (response) => {
             if (response && (response.zhu.length > 0 || response.xiang.length > 0)) {
+                if (response.name !== "") {
+                    zipName = response.name.replaceAll(" ", "").replaceAll("\n", "")
+                }
                 var zhu = response.zhu;
                 var xiang = response.xiang;
                 let _html = "";
@@ -115,7 +119,7 @@ function saveToZip(zip, imgUrls, index) {
         index++;
         if (index >= imgUrls.length) {
             zip.generateAsync({type: "blob"}).then(function (content) {
-                saveAs(content, "搞.zip");
+                saveAs(content, zipName + ".zip");
                 status = 0;
                 showMessage("下载好了，快打开看一看吧 ～～", 4);
             });
