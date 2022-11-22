@@ -45,7 +45,9 @@ btn.onclick = function (e) {
                 showMessage("页面数据读取完毕，快来选择喜欢的图片吧 ～～", 5);
             } else {
                 status = 0;
-                showMessage("当前页面不对吧？目前只支持<span>京东、淘宝、天猫、coupang、1688、naver、gmarket、alibaba</span>，而且必须要在商品详情页面才可以哦 ～～");
+                showMessage(`当前页面不对吧？目前只支持<span>京东、淘宝、天猫、coupang、1688、naver、gmarket、alibaba</span>，
+                                    而且必须要在商品详情页面才可以哦 ～～<br>如果确定是详情页的话，还请麻烦添加作者微信
+                                    <span>C473649383</span>，将失败网页发送给作者，感谢您的支持 ～～`);
             }
         });
     } else {
