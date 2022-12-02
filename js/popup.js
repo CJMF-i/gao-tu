@@ -111,7 +111,7 @@ btn2.onclick = function () {
 function saveToZip(zip, imgUrls, index) {
     getResources(index + 1, imgUrls[index].src, (data) => {
         let suffix = data.type.split('/')[1];
-        if (suffix.toLocaleUpperCase() === 'JPEG') {
+        if (suffix.toLocaleUpperCase() === 'JPEG' || suffix.toLocaleUpperCase() === 'AVIF') {
             suffix = 'jpg';
         }
         let fileName = imgUrls[index].name;
