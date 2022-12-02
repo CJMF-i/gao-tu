@@ -240,6 +240,9 @@ let platform_jd = function (_url, result) {
     var zhuEles = document.getElementById("spec-list").getElementsByClassName("lh")[0].getElementsByTagName("img");
     for (var i = 0; i < zhuEles.length; i++) {
         var value = zhuEles[i].src.substring(zhuEles[i].src.indexOf("/n5") + 3);
+        if (value.endsWith(".avif") || value.endsWith(".AVIF")) {
+            value = value.substring(0, value.length - 5);
+        }
         result.zhu.push({"src": `https://img11.360buyimg.com/n1${value}`, "name": "主图_" + (i + 1)});
     }
 
@@ -249,7 +252,11 @@ let platform_jd = function (_url, result) {
         for (let i = 0; i < divs.length; i++) {
             var div = divs[i];
             var style = div.currentStyle || window.getComputedStyle(div, false)
-            result.xiang.push({"src": style.backgroundImage.slice(4, -1).replace(/"/g, ""), "name": "详情图_" + (i + 1)});
+            var imgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+            if (imgUrl.endsWith(".avif") || imgurl.endsWith(".AVIF")) {
+                imgUrl = imgUrl.substring(0, imgUrl.length - 5);
+            }
+            result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
         }
     } else {
         let imgs = document.getElementById("J-detail-content").getElementsByTagName("img");
