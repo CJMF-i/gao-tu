@@ -149,7 +149,7 @@ function builder() {
         if (_url.indexOf("coupang.com") > -1) {
             platform_coupang(_url, result);
         }
-        if (_url.indexOf("jd.com") > -1) {
+        if (_url.indexOf("jd.com") > -1 || _url.indexOf("jd.hk") > -1) {
             platform_jd(_url, result);
         }
         if (_url.indexOf("taobao.com") > -1 || _url.indexOf("tmall.com") > -1 || _url.indexOf("tmall.hk") > -1) {
@@ -160,6 +160,9 @@ function builder() {
         }
         if (_url.indexOf("gmarket.co.kr") > -1) {
             platform_gmarket(_url, result);
+        }
+        if (_url.indexOf("lightinthebox.com") > -1) {
+            platform_lightinthebox(_url, result);
         }
     } catch (e) {
         result.error = e
@@ -363,6 +366,27 @@ let platform_gmarket = function (_url, result) {
     for (let i = 0; i < eles.length; i++) {
         var ele = eles[i];
         var imgUrl = ele.getAttribute("data-src") ? ele.getAttribute("data-src") : ele.src;
+        result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
+    }
+    return result;
+};
+
+let platform_lightinthebox = function (_url, result) {
+    // 商品名称
+    result.name = document.querySelector(".widget.prod-info-title").innerText;
+
+    // 主图
+    var zhuEle = document.querySelectorAll(".left.carousel_img_wrapper .viewport li.item img")
+    for (let i = 0; i < zhuEle.length; i++) {
+        var imgSrc = zhuEle[i].getAttribute("data-normal");
+        result.zhu.push({"src": imgSrc, "name": "主图_" + (i + 1)});
+    }
+
+    // 详情图
+    var eles = document.querySelectorAll(".description-container .item picture");
+    for (let i = 0; i < eles.length; i++) {
+        var ele = eles[i];
+        var imgUrl = ele.getAttribute("data-origin");
         result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
     }
     return result;
