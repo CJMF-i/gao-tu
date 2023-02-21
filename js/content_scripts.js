@@ -272,7 +272,7 @@ let platform_jd = function (_url, result) {
     return result;
 };
 
-let platform_taobao = function (_url, result) {
+let platform_taobao = async function (_url, result) {
     // 商品名称
     if (document.querySelector(".tb-main-title")) {
         result.name = document.querySelector(".tb-main-title").innerText;
@@ -290,7 +290,8 @@ let platform_taobao = function (_url, result) {
         zhuEles = document.querySelector(".PicGallery--thumbnails--1cEhJzK").getElementsByTagName("img");
     }
     for (let i = 0; i < zhuEles.length; i++) {
-        var imgSrc = zhuEles[i].src.replace("_60x60q90", "_430x430q90");
+        var imgSrc = zhuEles[i].src;
+        imgSrc = imgSrc.replace(/_\.webp/, '').replace(/\.png\_\d+x\d+\.png$/, '.png').replace(/\.jpg\_\d+x\d+\.jpg$/, '.jpg').replace(/_\d+x\d+\.jpg$/, '_800x800.jpg').replace(/_\d+x\d+[qQ]\d+\.jpg$/, '').replace(/\.\d+x\d+\.jpg$/, '.jpg').replace(/\.jpg_\d+x\d+xzq\d+\.jpg$/, '.jpg').replace(/_640x0q80_\.webp/, '').replace(/_640x0q80$/, '').replace(/_\d+x\d+.*/, '')
         result.zhu.push({"src": imgSrc, "name": "主图_" + (i + 1)});
     }
 
@@ -394,7 +395,7 @@ let platform_lightinthebox = function (_url, result) {
 
 /**
  *  睡眠函数
- *  @param numberMillis -- 要睡眠的毫秒数
+ *  @param numberMillis -- 要睡眠的秒数
  */
 function sleep(numberMillis) {
     var now = new Date();
