@@ -242,11 +242,8 @@ let platform_jd = function (_url, result) {
     // 主图
     var zhuEles = document.getElementById("spec-list").getElementsByClassName("lh")[0].getElementsByTagName("img");
     for (var i = 0; i < zhuEles.length; i++) {
-        var value = zhuEles[i].src.substring(zhuEles[i].src.indexOf("/n5") + 3);
-        if (value.endsWith(".avif") || value.endsWith(".AVIF")) {
-            value = value.substring(0, value.length - 5);
-        }
-        result.zhu.push({"src": `https://img11.360buyimg.com/n1${value}`, "name": "主图_" + (i + 1)});
+        var srcStr = zhuEles[i].src.replace(/\/n\d+\//, '/imgzone/').replace(/s\d+x\d+_(.*?)\//, '$1/').replace(/!cc_50x64.jpg$/, '').replace('.avif', '')
+        result.zhu.push({"src": srcStr, "name": "主图_" + (i + 1)});
     }
 
     // 详情图
