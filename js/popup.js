@@ -1,6 +1,8 @@
 var BasePath = "./live2";
 
+
 let btn = document.getElementById('getImg');
+let videoUrl;
 let status = 0;
 let zipName = "搞";
 // 点击按钮
@@ -10,8 +12,9 @@ btn.onclick = function (e) {
         doGao('开搞', (response) => {
             if (response && (response.zhu.length > 0 || response.xiang.length > 0)) {
                 if (response.name !== "") {
-                    zipName = response.name.replaceAll(" ", "").replaceAll("\n", "")
+                    zipName = response.name.replaceAll(" ", "").replaceAll("\n", "").replaceAll("/", "_")
                 }
+                videoUrl = response.videoUrl;
                 var zhu = response.zhu;
                 var xiang = response.xiang;
                 let _html = "";
@@ -46,7 +49,11 @@ btn.onclick = function (e) {
                     }
                 }
                 status = 0;
-                showMessage("页面数据读取完毕，快来选择喜欢的图片吧 ～～", 5);
+                if (response.url.indexOf("jd.com") > -1) {
+                    showMessage("页面数据读取完毕，检测到您访问的是京东，如果需要导出视频文件，暂时请先播放主图视频然后再点获取页面图片");
+                } else {
+                    showMessage("页面数据读取完毕，快来选择喜欢的图片吧 ～～", 5);
+                }
             } else {
                 status = 0;
                 showMessage(`当前页面不对吧？目前只支持<span>京东、淘宝、天猫、coupang、1688、naver、gmarket、alibaba</span>，
@@ -84,9 +91,18 @@ document.getElementById('allSelect').onclick = function () {
     }
 };
 
+document.getElementsByName("videoSelect")[0].addEventListener('change', function() {
+    if (this.checked) {
+        localStorage.setItem('videoSelect', 'true')
+    } else {
+        localStorage.setItem('videoSelect', 'false')
+    }
+});
+
 let btn2 = document.getElementById('download');
 btn2.onclick = function () {
     if (status === 0) {
+        status = 1;
         var main = document.getElementById("main").getElementsByClassName("activation");
         var imgUrls = []
         for (let i = 0; i < main.length; i++) {
@@ -118,11 +134,23 @@ function saveToZip(zip, imgUrls, index) {
         zip.file(fileName + "." + suffix, data);
         index++;
         if (index >= imgUrls.length) {
-            zip.generateAsync({type: "blob"}).then(function (content) {
-                saveAs(content, zipName + ".zip");
-                status = 0;
-                showMessage("下载好了，快打开看一看吧 ～～", 4);
-            });
+            // 是否需要下载视频
+            if (videoUrl && document.getElementsByName("videoSelect")[0].checked) {
+                getResources(index + 1, videoUrl, (data) => {
+                    zip.file(zipName + ".mp4", data);
+                    zip.generateAsync({type: "blob"}).then(function (content) {
+                        saveAs(content, zipName + ".zip");
+                        status = 0;
+                        showMessage("下载好了，快打开看一看吧 ～～", 4);
+                    });
+                });
+            } else {
+                zip.generateAsync({type: "blob"}).then(function (content) {
+                    saveAs(content, zipName + ".zip");
+                    status = 0;
+                    showMessage("下载好了，快打开看一看吧 ～～", 4);
+                });
+            }
         } else {
             saveToZip(zip, imgUrls, index);
         }
@@ -153,4 +181,26 @@ function getCurrentTabId(callback) {
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
         if (callback) callback(tabs.length ? tabs[0].id : null);
     });
+}
+
+(function() {
+    if (localStorage.getItem("videoSelect") === "true") {
+        document.getElementsByName("videoSelect")[0].checked = true;
+    }
+})();
+
+
+
+/**
+ *  睡眠函数
+ *  @param numberMillis -- 要睡眠的秒数
+ */
+function sleep(numberMillis) {
+    var now = new Date();
+    var exitTime = now.getTime() + (numberMillis * 1000);
+    while (true) {
+        now = new Date();
+        if (now.getTime() > exitTime)
+            return;
+    }
 }

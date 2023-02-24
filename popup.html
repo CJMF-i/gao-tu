@@ -70,6 +70,16 @@
             background: #ffffff;
             cursor: pointer;
         }
+        #videoSelect {
+            position: fixed;
+            right: 98px;
+            bottom: 80px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #ffffff;
+            cursor: pointer;
+        }
         #main {
             width: 500px;
             min-height: 600px;
@@ -142,10 +152,11 @@
 
     </div>
     <div id="btn">
-        <span id="getImg">获取当前网页图片</span>
+        <span id="getImg">获取当前网页图片/视频</span>
         <span id="download">开始下载</span>
     </div>
     <div id="allSelect">全选/取消</div>
+    <label id="videoSelect"><input type="checkbox" value="视频" name="videoSelect"> 视频</label>
     <script src="js/popup.js"></script>
     <script src="./live2/assets/autoload.js"></script>
 </body>

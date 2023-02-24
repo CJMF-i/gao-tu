@@ -1,133 +1,4 @@
 console.log("搞图宝已经注入成功")
-
-function zhu() {
-    // 主图
-    var _url = window.location.href;
-    var imgUrl = [];
-    if (_url.indexOf("1688.com") > -1) {
-        var imgs = document.querySelectorAll("img.detail-gallery-img");
-        for (let i = 0; i < imgs.length; i++) {
-            imgUrl.push({"src": imgs[i].src, "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("alibaba.com") > -1) {
-        var imgs = document.querySelectorAll(".main-layout .main-list img");
-        for (let i = 0; i < imgs.length; i++) {
-            imgUrl.push({"src": imgs[i].src.replace("100x100xz.jpg", "720x720q50.jpg"), "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("coupang.com") > -1) {
-        var eles = document.getElementsByClassName("prod-image__item");
-        for (let i = 0; i < eles.length; i++) {
-            var event = document.createEvent("HTMLEvents");
-            event.initEvent("mouseover", true, true);
-            event.eventName = "mouseover";
-            eles[i].dispatchEvent(event);
-            imgUrl.push({"src": document.getElementsByClassName("prod-image__detail")[0].src, "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("jd.com") > -1) {
-        var eles = document.getElementById("spec-list").getElementsByClassName("lh")[0].getElementsByTagName("img");
-        for (var i = 0; i < eles.length; i++) {
-            var value = eles[i].src.substring(eles[i].src.indexOf("/n5") + 3);
-            imgUrl.push({"src": `https://img11.360buyimg.com/n1${value}`, "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("tmall.com") > -1 || _url.indexOf("taobao.com") > -1 || _url.indexOf("tmall.hk") > -1) {
-        var ele = document.getElementById("J_UlThumb").getElementsByTagName("img");
-        for (let i = 0; i < ele.length; i++) {
-            var imgSrc = ele[i].src.replace("_60x60q90", "_430x430q90");
-            imgUrl.push({"src": imgSrc, "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("naver.com") > -1) {
-        var ele = document.getElementById("content").getElementsByClassName("_2Yq5J2HeBn")[0].getElementsByTagName("img")
-        for (let i = 0; i < ele.length; i++) {
-            var imgSrc = ele[i].src.replace("?type=f40", "?type=m510");
-            imgUrl.push({"src": imgSrc, "name": "主图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("gmarket.co.kr") > -1) {
-        var ele = document.querySelectorAll('.box__viewer-container .viewer li img')
-        for (let i = 0; i < ele.length; i++) {
-            var imgSrc = ele[i].src.replace("?type=f40", "?type=m510");
-            imgUrl.push({"src": imgSrc, "name": "主图_" + (i + 1)});
-        }
-    }
-    return imgUrl;
-}
-
-function xiang() {
-    // 详情图
-    var _url = window.location.href;
-    var result = [];
-    if (_url.indexOf("1688.com") > -1) {
-        let ele = document.getElementById("detailContentContainer").getElementsByClassName("content-detail")[0].getElementsByTagName("img");
-        for (let i = 0; i < ele.length; i++) {
-            var imgUrl = ele[i].getAttribute("data-lazyload-src") ? ele[i].getAttribute("data-lazyload-src") : ele[i].src;
-            result.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("alibaba.com") > -1) {
-        let ele = document.getElementById("module_product_specification").getElementsByTagName("img");
-        for (let i = 0; i < ele.length; i++) {
-            let url = ele[i].getAttribute("data-src")
-            result.push({"src": url.startsWith("http") ? url : "https:" + url, "name": "详情图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("coupang.com") > -1) {
-        let ele = document.getElementById("productDetail").getElementsByClassName("vendor-item")[0].getElementsByTagName("img");
-        for (let i = 0; i < ele.length; i++) {
-            result.push({"src": ele[i].src, "name": "详情图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("jd.com") > -1) {
-        if (document.getElementById("J-detail-content").getElementsByClassName("ssd-module-wrap")[0]) {
-            let divs = document.getElementById("J-detail-content").getElementsByClassName("ssd-module-wrap")[0].getElementsByTagName("div");
-            for (let i = 0; i < divs.length; i++) {
-                var div = divs[i];
-                var style = div.currentStyle || window.getComputedStyle(div, false)
-                result.push({"src": style.backgroundImage.slice(4, -1).replace(/"/g, ""), "name": "详情图_" + (i + 1)});
-            }
-        } else {
-            let imgs = document.getElementById("J-detail-content").getElementsByTagName("img");
-            for (let i = 0; i < imgs.length; i++) {
-                var img = imgs[i];
-                var imgUrl = img.getAttribute("data-lazyload") ? img.getAttribute("data-lazyload") : img.src;
-                result.push({"src": imgUrl.lastIndexOf("http") > -1 ? imgUrl : "http:" + imgUrl, "name": "详情图_" + (i + 1)});
-            }
-        }
-    }
-    if (_url.indexOf("taobao.com") > -1 || _url.indexOf("tmall.com") > -1 || _url.indexOf("tmall.hk") > -1) {
-        var eles = document.getElementById("description").getElementsByClassName("content")[0].getElementsByTagName("img");
-        for (let i = 0; i < eles.length; i++) {
-            var ele = eles[i];
-            var imgUrl = ele.getAttribute("data-ks-lazyload") ? ele.getAttribute("data-ks-lazyload") : ele.src;
-            if (imgUrl.indexOf("_!!") > -1) result.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
-        }
-    }
-    if (_url.indexOf("naver.com") > -1) {
-        if (document.getElementById("INTRODUCE")) {
-            var eles = document.getElementById("INTRODUCE").getElementsByTagName("img");
-            for (let i = 0; i < eles.length; i++) {
-                var ele = eles[i];
-                var imgUrl = ele.getAttribute("data-src") ? ele.getAttribute("data-src") : ele.src;
-                result.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
-            }
-        }
-    }
-    if (_url.indexOf("gmarket.co.kr") > -1) {
-        var iframe = document.getElementById('detail1').contentDocument;
-        var eles = iframe.querySelectorAll('.ee-contents .ee-image img');
-        for (let i = 0; i < eles.length; i++) {
-            var ele = eles[i];
-            var imgUrl = ele.getAttribute("data-src") ? ele.getAttribute("data-src") : ele.src;
-            result.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
-        }
-    }
-    return result;
-}
-
 chrome.runtime.onMessage.addListener(function (data, sender, sendResponse) {
     let result = builder();
     console.log(result);
@@ -179,6 +50,15 @@ let platform_1688 = function (_url, result) {
         result.name = document.querySelector(".title-info-name").innerText;
     }
 
+    // 视频
+    var d, s = document.querySelector(".mod-detail-version2018-gallery, .mod-detail-gallery");
+    if (s && (d = JSON.parse(s.dataset.modConfig)).userId && d.mainVideoId) {
+        result.videoUrl = "https://cloud.video.taobao.com/play/u/" + d.userId + "/p/1/e/6/t/1/" + d.mainVideoId + ".mp4";
+    }
+    if (result.videoUrl === undefined && document.querySelector(".lib-video video")) {
+        result.videoUrl = document.querySelector(".lib-video video").src;
+    }
+
     // 主图
     let zhuImgs = document.querySelectorAll("img.detail-gallery-img");
     for (let i = 0; i < zhuImgs.length; i++) {
@@ -202,6 +82,11 @@ let platform_alibaba = function (_url, result) {
     var zhuImgs = document.querySelectorAll(".main-layout .main-list img");
     for (let i = 0; i < zhuImgs.length; i++) {
         result.zhu.push({"src": zhuImgs[i].src.replace("100x100xz.jpg", "720x720q50.jpg"), "name": "主图_" + (i + 1)});
+    }
+
+    // 视频
+    if (document.querySelectorAll("#J-dbi-tbplayer video,.image-slider video source, .bc-video-player video, .bc-video-player video source")[0]) {
+        result.videoUrl = document.querySelectorAll("#J-dbi-tbplayer video,.image-slider video source, .bc-video-player video, .bc-video-player video source")[0].src;
     }
 
     // 详情图
@@ -246,6 +131,11 @@ let platform_jd = function (_url, result) {
         result.zhu.push({"src": srcStr, "name": "主图_" + (i + 1)});
     }
 
+    // 视频
+    if (document.getElementById("video-player_html5_api")) {
+        result.videoUrl = document.getElementById("video-player_html5_api").src;
+    }
+
     // 详情图
     if (document.getElementById("J-detail-content").getElementsByClassName("ssd-module-wrap")[0]) {
         let divs = document.getElementById("J-detail-content").getElementsByClassName("ssd-module-wrap")[0].getElementsByTagName("div");
@@ -253,7 +143,7 @@ let platform_jd = function (_url, result) {
             var div = divs[i];
             var style = div.currentStyle || window.getComputedStyle(div, false)
             var imgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-            if (imgUrl.endsWith(".avif") || imgurl.endsWith(".AVIF")) {
+            if (imgUrl.endsWith(".avif") || imgUrl.endsWith(".AVIF")) {
                 imgUrl = imgUrl.substring(0, imgUrl.length - 5);
             }
             result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
@@ -290,6 +180,38 @@ let platform_taobao = async function (_url, result) {
         var imgSrc = zhuEles[i].src;
         imgSrc = imgSrc.replace(/_\.webp/, '').replace(/\.png\_\d+x\d+\.png$/, '.png').replace(/\.jpg\_\d+x\d+\.jpg$/, '.jpg').replace(/_\d+x\d+\.jpg$/, '_800x800.jpg').replace(/_\d+x\d+[qQ]\d+\.jpg$/, '').replace(/\.\d+x\d+\.jpg$/, '.jpg').replace(/\.jpg_\d+x\d+xzq\d+\.jpg$/, '.jpg').replace(/_640x0q80_\.webp/, '').replace(/_640x0q80$/, '').replace(/_\d+x\d+.*/, '')
         result.zhu.push({"src": imgSrc, "name": "主图_" + (i + 1)});
+    }
+
+    // 视频
+    var meta = document.querySelector('meta[name="microscope-data"]'), scripts = document.querySelectorAll("script"), imgVedioID;
+    if (meta && (userId = meta.content.match(/userid=(\d+);/), userId)) {
+        userId = userId[1];
+        for (var i = 0; i < scripts.length; i++) {
+            if (scripts[i].innerText && !imgVedioID && (imgVedioID = scripts[i].innerText.match(/"videoId":"(\d+)"/), imgVedioID)) {
+                imgVedioID = imgVedioID[1];
+                result.videoUrl = "https://cloud.video.taobao.com/play/u/" + userId + "/p/1/e/6/t/1/" + imgVedioID + ".mp4";
+            }
+        }
+    }
+    if (result.videoUrl === undefined) {
+        document.querySelectorAll("video").forEach(e => {
+            result.videoUrl = e.currentSrc;
+        });
+    }
+
+    if (result.videoUrl.startsWith("blob")) {
+        for (var l = document.querySelectorAll("script"), p = 0; p < l.length; p++) if (l[p].innerText) {
+            if (imgVedioID = l[p].innerText.match(/"imgVedioID":"(\d+)"/), imgVedioID && (imgVedioID = imgVedioID[1], userId = l[p].innerText.match(/"userId":"(\d+)"/), userId = userId ? userId[1] : "", imgVedioID && userId)) {
+                result.videoUrl = "https://cloud.video.taobao.com/play/u/" + userId + "/p/1/e/6/t/1/" + imgVedioID + ".mp4";
+            }
+            var g = l[p].innerText.match(/"valFlashUrl".*?"(.*?)"/);
+            if (g) {
+                var I = g[1].replace(/(\/\/cloud\.video\.taobao\.com\/play\/u\/\d+\/p\/\d+\/e\/)\d+(\/t\/)\d+(.+)swf/, "$16$21$3mp4");
+                if ((I = I.replace(/^\/\//, "https://")).indexOf(".mp4") > 0) {
+                    result.videoUrl = I;
+                }
+            }
+        }
     }
 
     // 详情图
