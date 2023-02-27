@@ -202,7 +202,7 @@ let platform_taobao = async function (_url, result) {
         });
     }
 
-    if (result.videoUrl.startsWith("blob")) {
+    if (result.videoUrl !== undefined && result.videoUrl.startsWith("blob")) {
         for (var l = document.querySelectorAll("script"), p = 0; p < l.length; p++) if (l[p].innerText) {
             if (imgVedioID = l[p].innerText.match(/"imgVedioID":"(\d+)"/), imgVedioID && (imgVedioID = imgVedioID[1], userId = l[p].innerText.match(/"userId":"(\d+)"/), userId = userId ? userId[1] : "", imgVedioID && userId)) {
                 result.videoUrl = "https://cloud.video.taobao.com/play/u/" + userId + "/p/1/e/6/t/1/" + imgVedioID + ".mp4";
