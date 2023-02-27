@@ -317,7 +317,7 @@ let platform_lightinthebox = function (_url, result) {
 
 let platform_pinduoduo = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector("#main > div > div._2atM6O_- > div:nth-child(3) > div > span > span._1fdrZL9O.enable-select > span").innerText;
+    result.name = document.querySelector("#main span._1fdrZL9O.enable-select > span").innerText;
 
     // 主图
     var zhuEle = document.querySelectorAll("#main > div > div._3-UgVhPL > div._2wJiTrdH > div._1fBWnMAg ._1bq9lpD4")
