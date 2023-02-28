@@ -146,9 +146,7 @@ let platform_jd = function (_url, result) {
             var div = divs[i];
             var style = div.currentStyle || window.getComputedStyle(div, false)
             var imgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-            if (imgUrl.endsWith(".avif") || imgUrl.endsWith(".AVIF")) {
-                imgUrl = imgUrl.substring(0, imgUrl.length - 5);
-            }
+            imgUrl = imgUrl.replace(/\/n\d+\//, '/imgzone/').replace(/s\d+x\d+_(.*?)\//, '$1/').replace(/!cc_50x64.jpg$/, '').replace('.avif', '')
             result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
         }
     } else {
@@ -156,7 +154,8 @@ let platform_jd = function (_url, result) {
         for (let i = 0; i < imgs.length; i++) {
             var img = imgs[i];
             var imgUrl = img.getAttribute("data-lazyload") ? img.getAttribute("data-lazyload") : img.src;
-            result.xiang.push({"src": imgUrl.lastIndexOf("http") > -1 ? imgUrl : "http:" + imgUrl, "name": "详情图_" + (i + 1)});
+            imgUrl = imgUrl.replace(/\/n\d+\//, '/imgzone/').replace(/s\d+x\d+_(.*?)\//, '$1/').replace(/!cc_50x64.jpg$/, '').replace('.avif', '')
+            result.xiang.push({"src": imgUrl, "name": "详情图_" + (i + 1)});
         }
     }
     return result;
