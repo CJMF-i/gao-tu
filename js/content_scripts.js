@@ -107,7 +107,7 @@ let platform_coupang = function (_url, result) {
 
     // 主图
     var zhuEles = document.getElementsByClassName("prod-image__item");
-    for (let i = 0; i < eles.length; i++) {
+    for (let i = 0; i < zhuEles.length; i++) {
         var event = document.createEvent("HTMLEvents");
         event.initEvent("mouseover", true, true);
         event.eventName = "mouseover";
