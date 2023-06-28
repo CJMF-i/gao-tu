@@ -109,7 +109,8 @@ btn2.onclick = function () {
             imgUrls.push({src: main[i].getElementsByTagName('img')[0].src, name: main[i].getElementsByTagName('span')[0].innerText})
         }
         if (imgUrls.length === 0) {
-            showMessage("还没有获取网页图片呢，快去获取一下吧 ～～", 5);
+            status = 0;
+            showMessage("还没有选择网页图片呢，快去选择喜欢的图片吧 ～～", 5);
             return;
         }
         var zip = new JSZip();
