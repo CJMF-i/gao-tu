@@ -16,6 +16,7 @@
 
 搞图宝最新版下载：[点击下载搞图宝，无需登录](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-v3.x.zip)
 
+有些版本浏览器会提示下载文件危险，拦截了，可以去下载列表保留文件，插件安全无毒，放心使用
 ### 开发计划
 1. [X] 主图与详情图
 2. [X] 兼容alibaba国际版
