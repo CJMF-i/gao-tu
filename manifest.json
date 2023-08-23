@@ -12,13 +12,6 @@
             "matches": ["<all_urls>"],
             "js": ["js/content_scripts.js"]
         }
-    ],
-    "optional_permissions": [
-        "contextMenus",
-        "tabs",
-        "notifications",
-        "webRequest",
-        "storage"
     ]
 }
 
