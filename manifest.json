@@ -9,7 +9,20 @@
     },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": [
+                "https://*.1688.com/*",
+                "https://*.alibaba.com/*",
+                "https://*.coupang.com/*",
+                "https://*.jd.com/*",
+                "https://*.jd.hk/*",
+                "https://*.taobao.com/*",
+                "https://*.tmall.com/*",
+                "https://*.tmall.hk/*",
+                "https://*.naver.com/*",
+                "https://*.gmarket.co.kr/*",
+                "https://*.lightinthebox.com/*",
+                "https://*.yangkeduo.com/*"
+            ],
             "js": ["js/content_scripts.js"]
         }
     ]
