@@ -34,7 +34,7 @@
 **拖拽安装方式**：[拖拽安装版下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
 
 **安装方式：** 
-1. <a href="chrome://extensions/" target="_blank">点击进入浏览器扩展界面</a>
+1. 复制链接，新建窗口访问，进入浏览器扩展界面：**chrome://extensions/**
 2. 右上角打开**开发者模式**
 3. 切记，打开开发者模式后一定要**刷新页面**
 4. 把下载的文件，拖拽到设置页面即可
@@ -44,11 +44,11 @@
 **解压缩版方式下载，新老版本选择，看下方安装方式**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
 
 **安装方式：**
-1. <a href="chrome://settings/help" target="_blank">点击进入关于浏览器界面，检查浏览器版本，版本的第一位就是你的浏览器版本</a>
+1. 复制链接，新建窗口访问，进入关于浏览器界面，检查浏览器版本，点击进入页面，版本的第一位就是你的浏览器版本：**chrome://settings/help**
 
     例如：【版本 116.0.5845.110（正式版本） (arm64)】 就是116版本
 2. 如果浏览器版本在90以下的下载【老版本】
-3. <a href="chrome://extensions/" target="_blank">点击进入浏览器扩展界面</a>
+3. 复制链接，新建窗口访问，进入浏览器扩展界面：**chrome://extensions/**
 4. 右上方打开**开发者模式**
 5. 切记，打开开发者模式后一定要**刷新页面**
 6. 左上方加载已解压的扩展持续，选到解压缩后的文件目录即可
@@ -58,6 +58,8 @@
 1. 有问题可以加V：**C473649383**
 2. 有些版本浏览器会提示下载文件危险，拦截了，可以去下载列表保留文件，插件安全无毒，放心使用
 3. 切记，打开开发者模式后，需要刷新，左上角的圆圈箭头，或者按键盘F5
-3. 为方便使用，可以固定插件到菜单栏
+4. 要进入商品详情页使用
+5. 为方便使用，可以固定插件到菜单栏
    ![WechatIMG236.png](img%2FWechatIMG236.png)
+6. 使用效果图![WechatIMG237.png](img%2FWechatIMG237.png)
 
