@@ -22,10 +22,10 @@
 
 
 ### 依赖软件
-谷歌浏览器：[Google Chrome 网络浏览器](https://www.google.cn/intl/zh-CN/chrome/){:target="_blank"}
+谷歌浏览器：<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">最新版Google Chrome 网络浏览器下载地址</a>
 
 ### 安装方式，选其一即可，有疑惑看备注
-**科学上网安装方式**：[谷歌应用商店安装](https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN)
+**科学上网安装方式**：<a href="https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN" target="_blank">搞图宝-谷歌应用商店安装</a>
 
 **安装方式：** 直接安装即可，如果没有科学上网，可以尝试其他方式
 
@@ -34,21 +34,21 @@
 **拖拽安装方式**：[拖拽安装版下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
 
 **安装方式：** 
-1. 复制链接进入浏览器扩展界面：**chrome://extensions/**
+1. <a href="chrome://extensions/" target="_blank">点击进入浏览器扩展界面</a>
 2. 右上角打开**开发者模式**
 3. 切记，打开开发者模式后一定要**刷新页面**
 4. 把下载的文件，拖拽到设置页面即可
 
 ---
 
-**解压缩版方式下载**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
+**解压缩版方式下载，新老版本选择，看下方安装方式**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
 
 **安装方式：**
-1. 复制链接进入关于浏览器界面，检查浏览器版本，点击进入页面，版本的第一位就是你的浏览器版本：**chrome://settings/help**
+1. <a href="chrome://settings/help" target="_blank">点击进入关于浏览器界面，检查浏览器版本，版本的第一位就是你的浏览器版本</a>
 
     例如：【版本 116.0.5845.110（正式版本） (arm64)】 就是116版本
 2. 如果浏览器版本在90以下的下载【老版本】
-3. 复制链接进入浏览器扩展界面：**chrome://extensions/**
+3. <a href="chrome://extensions/" target="_blank">点击进入浏览器扩展界面</a>
 4. 右上方打开**开发者模式**
 5. 切记，打开开发者模式后一定要**刷新页面**
 6. 左上方加载已解压的扩展持续，选到解压缩后的文件目录即可
