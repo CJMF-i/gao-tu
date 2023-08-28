@@ -61,5 +61,6 @@
 4. 要进入商品详情页使用
 5. 为方便使用，可以固定插件到菜单栏
    ![WechatIMG236.png](img%2FWechatIMG236.png)
-6. 使用效果图![WechatIMG237.png](img%2FWechatIMG237.png)
+6. 使用效果图
+   ![WechatIMG237.png](img%2FWechatIMG237.png)
 
