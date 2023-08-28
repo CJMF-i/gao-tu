@@ -25,13 +25,13 @@
 谷歌浏览器：[最新版Google Chrome 网络浏览器下载地址](https://www.google.cn/intl/zh-CN/chrome/)
 
 ### 安装方式，选其一即可，有疑惑看备注
-**科学上网安装方式**：[搞图宝-谷歌应用商店安装](https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN)
+**科学上网安装方式**：[点击前往-搞图宝-谷歌应用商店安装](https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN)
 
 **安装方式：** 直接安装即可，如果没有科学上网，可以尝试其他方式
 
 ---
 
-**拖拽安装方式**：[拖拽安装版下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
+**拖拽安装方式**：[点击下载-拖拽安装版](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
 
 **安装方式：** 
 1. 复制链接，新建窗口访问，进入浏览器扩展界面：**chrome://extensions/**
@@ -41,7 +41,7 @@
 
 ---
 
-**解压缩版方式下载，新老版本选择，看下方安装方式**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
+**解压缩版方式下载，新老版本选择，看下方安装方式**：[点击下载-新版本](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [点击下载-老版本](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
 
 **安装方式：**
 1. 复制链接，新建窗口访问，进入关于浏览器界面，检查浏览器版本，点击进入页面，版本的第一位就是你的浏览器版本：**chrome://settings/help**
