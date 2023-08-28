@@ -41,7 +41,7 @@
 
 ---
 
-**解压缩版方式下载**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-v3.x.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-v3.x.zip)
+**解压缩版方式下载**：[新版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/xin.zip) ， [老版本下载](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/jiu.zip)
 
 **安装方式：**
 1. [检查浏览器版本，点击进入页面，版本的第一位就是你的浏览器版本](chrome://settings/help)
