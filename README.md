@@ -22,10 +22,10 @@
 
 
 ### 依赖软件
-谷歌浏览器：<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">最新版Google Chrome 网络浏览器下载地址</a>
+谷歌浏览器：[最新版Google Chrome 网络浏览器下载地址](https://www.google.cn/intl/zh-CN/chrome/)
 
 ### 安装方式，选其一即可，有疑惑看备注
-**科学上网安装方式**：<a href="https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN" target="_blank">搞图宝-谷歌应用商店安装</a>
+**科学上网安装方式**：[搞图宝-谷歌应用商店安装](https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN)
 
 **安装方式：** 直接安装即可，如果没有科学上网，可以尝试其他方式
 
