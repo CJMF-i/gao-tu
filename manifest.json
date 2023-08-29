@@ -1,6 +1,6 @@
 {
     "name": "搞图宝",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "搞图宝,专门下载各大电商平台详情页面主图和详情图的浏览器插件",
     "manifest_version": 3,
     "author": "林龙 邮箱: 473649383@qq.com",
@@ -11,17 +11,29 @@
         {
             "matches": [
                 "https://*.1688.com/*",
+                "http://*.1688.com/*",
                 "https://*.alibaba.com/*",
+                "http://*.alibaba.com/*",
                 "https://*.coupang.com/*",
+                "http://*.coupang.com/*",
                 "https://*.jd.com/*",
+                "http://*.jd.com/*",
                 "https://*.jd.hk/*",
+                "http://*.jd.hk/*",
                 "https://*.taobao.com/*",
+                "http://*.taobao.com/*",
                 "https://*.tmall.com/*",
+                "http://*.tmall.com/*",
                 "https://*.tmall.hk/*",
+                "http://*.tmall.hk/*",
                 "https://*.naver.com/*",
+                "http://*.naver.com/*",
                 "https://*.gmarket.co.kr/*",
+                "http://*.gmarket.co.kr/*",
                 "https://*.lightinthebox.com/*",
-                "https://*.yangkeduo.com/*"
+                "http://*.lightinthebox.com/*",
+                "https://*.yangkeduo.com/*",
+                "http://*.yangkeduo.com/*"
             ],
             "js": ["js/content_scripts.js"]
         }
