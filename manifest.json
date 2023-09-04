@@ -9,32 +9,7 @@
     },
     "content_scripts": [
         {
-            "matches": [
-                "https://*.1688.com/*",
-                "http://*.1688.com/*",
-                "https://*.alibaba.com/*",
-                "http://*.alibaba.com/*",
-                "https://*.coupang.com/*",
-                "http://*.coupang.com/*",
-                "https://*.jd.com/*",
-                "http://*.jd.com/*",
-                "https://*.jd.hk/*",
-                "http://*.jd.hk/*",
-                "https://*.taobao.com/*",
-                "http://*.taobao.com/*",
-                "https://*.tmall.com/*",
-                "http://*.tmall.com/*",
-                "https://*.tmall.hk/*",
-                "http://*.tmall.hk/*",
-                "https://*.naver.com/*",
-                "http://*.naver.com/*",
-                "https://*.gmarket.co.kr/*",
-                "http://*.gmarket.co.kr/*",
-                "https://*.lightinthebox.com/*",
-                "http://*.lightinthebox.com/*",
-                "https://*.yangkeduo.com/*",
-                "http://*.yangkeduo.com/*"
-            ],
+            "matches": ["<all_urls>"],
             "js": ["js/content_scripts.js"]
         }
     ]
