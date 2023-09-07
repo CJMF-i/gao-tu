@@ -44,6 +44,8 @@
 5. 切记，打开开发者模式后一定要**刷新页面**
 6. 然后点击左上方加载已解压的扩展程序，选到解压缩后的文件目录即可
 
+![方式一.gif](jiaocheng%2Ffangshiyi.gif)
+
 ---
 
 **2、拖拽安装方式**：[点击下载-拖拽安装版](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
@@ -54,11 +56,15 @@
 3. 切记，打开开发者模式后一定要**刷新页面**
 4. 然后把下载的文件，拖拽到浏览器扩展界面即可，如果失败，说明浏览器版本过低，请尝试第二种方法
 
+![方式二.gif](jiaocheng%2Ffangshier.gif)
+
 ---
 
 **3、谷歌应用商店安装方式**：[点击前往-搞图宝-谷歌应用商店安装](https://chrome.google.com/webstore/detail/%E6%90%9E%E5%9B%BE%E5%AE%9D/bihikmbakmidndeladidibcflonoeooj?utm_source=ext_sidebar&hl=zh-CN)
 
 **安装方式：** 直接安装即可，如果打不开，可以尝试其他方式
+
+![方式三.gif](jiaocheng%2Ffangshisan.gif)
 
 ---
 
