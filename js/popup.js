@@ -56,7 +56,7 @@ btn.onclick = function (e) {
                 }
             } else {
                 status = 0;
-                showMessage(`当前页面不对吧？目前只支持<span>京东、淘宝、天猫、coupang、1688、naver、gmarket、alibaba</span>，
+                showMessage(`当前页面不对吧？目前只支持<span>京东、京东国际、淘宝、天猫、拼多多，coupang、1688、naver、gmarket、alibaba、兰亭集势、微盟</span>，
                                     而且必须要在商品详情页面才可以哦 ～～<br>如果确定是详情页的话，还请麻烦添加作者微信
                                     <span>C473649383</span>，将失败网页发送给作者，感谢您的支持 ～～`);
             }

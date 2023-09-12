@@ -38,6 +38,9 @@ function builder() {
         if (_url.indexOf("yangkeduo.com") > -1) {
             platform_pinduoduo(_url, result);
         }
+        if (_url.indexOf("weimob.com") > -1) {
+            platform_weimob(_url, result);
+        }
     } catch (e) {
         result.error = e
     }
@@ -337,6 +340,27 @@ let platform_pinduoduo = function (_url, result) {
         if (imgSrc === undefined || imgSrc === '') {
             imgSrc = ele.getAttribute("data-src");
         }
+        result.xiang.push({"src": imgSrc.substring(0, imgSrc.indexOf("?")), "name": "详情图_" + (i + 1)});
+    }
+    return result;
+};
+
+let platform_weimob = function (_url, result) {
+    // 商品名称
+    result.name = window.frames['bosCompatibleIframe'].document.getElementsByClassName('good-detail--title')[0].innerText;
+
+    // 主图
+    var zhuEle = window.frames['bosCompatibleIframe'].document.querySelectorAll("#goods-slider img")
+    for (let i = 0; i < zhuEle.length; i++) {
+        var imgSrc = zhuEle[i].src;
+        result.zhu.push({"src": imgSrc.substring(0, imgSrc.indexOf("?")), "name": "主图_" + (i + 1)});
+    }
+
+    // 详情图
+    var eles = window.frames['bosCompatibleIframe'].document.querySelectorAll("#goodDet img");
+    for (let i = 0; i < eles.length; i++) {
+        var ele = eles[i];
+        var imgSrc = ele.src;
         result.xiang.push({"src": imgSrc.substring(0, imgSrc.indexOf("?")), "name": "详情图_" + (i + 1)});
     }
     return result;
