@@ -49,6 +49,7 @@ function builder() {
 
 let platform_1688 = function (_url, result) {
     // 商品名称
+    result.name = _url;
     if (document.querySelector(".title-content .title-first-column .title-text")) {
         result.name = document.querySelector(".title-content .title-first-column .title-text").innerText;
     }
@@ -82,7 +83,10 @@ let platform_1688 = function (_url, result) {
 
 let platform_alibaba = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".product-title").innerText;
+    result.name = _url;
+    if (document.querySelector(".product-title")) {
+        result.name = document.querySelector(".product-title").innerText;
+    }
 
     // 主图
     var zhuImgs = document.querySelectorAll(".main-layout .main-list img");
@@ -106,7 +110,10 @@ let platform_alibaba = function (_url, result) {
 
 let platform_coupang = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".prod-buy-header__title").innerText;
+    result.name = _url;
+    if (document.querySelector(".prod-buy-header__title")) {
+        result.name = document.querySelector(".prod-buy-header__title").innerText;
+    }
 
     // 主图
     var zhuEles = document.getElementsByClassName("prod-image__item");
@@ -128,7 +135,10 @@ let platform_coupang = function (_url, result) {
 
 let platform_jd = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".sku-name").innerText;
+    result.name = _url;
+    if (document.querySelector(".sku-name")) {
+        result.name = document.querySelector(".sku-name").innerText;
+    }
 
     // 主图
     var zhuEles = document.getElementById("spec-list").getElementsByClassName("lh")[0].getElementsByTagName("img");
@@ -166,6 +176,7 @@ let platform_jd = function (_url, result) {
 
 let platform_taobao = async function (_url, result) {
     // 商品名称
+    result.name = _url;
     if (document.querySelector(".tb-main-title")) {
         result.name = document.querySelector(".tb-main-title").innerText;
     } else if (document.querySelector(".ItemHeader--mainTitle--3CIjqW5")) {
@@ -246,10 +257,13 @@ let platform_taobao = async function (_url, result) {
 
 let platform_naver = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".headingArea").innerText;
+    result.name = _url;
+    if (document.querySelector("title")) {
+        result.name = document.querySelector("title").innerText;
+    }
 
     // 主图
-    var zhuEles = document.getElementById("content").getElementsByClassName("_2Yq5J2HeBn")[0].getElementsByTagName("img")
+    var zhuEles = document.querySelectorAll(".bd_2q-LL img")
     for (let i = 0; i < zhuEles.length; i++) {
         var imgSrc = zhuEles[i].src.replace("?type=f40", "?type=m510");
         result.zhu.push({"src": imgSrc, "name": "主图_" + (i + 1)});
@@ -269,10 +283,13 @@ let platform_naver = function (_url, result) {
 
 let platform_gmarket = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".box__item-title .itemtit").innerText;
+    result.name = _url;
+    if (document.querySelector(".box__item-title .itemtit")) {
+        result.name = document.querySelector(".box__item-title .itemtit").innerText;
+    }
 
     // 主图
-    var zhuEle = document.querySelectorAll('.box__viewer-container .viewer li img')
+    var zhuEle = document.querySelectorAll('.box__viewer-container .viewer li img');
     for (let i = 0; i < zhuEle.length; i++) {
         var imgSrc = zhuEle[i].src.replace("?type=f40", "?type=m510");
         result.zhu.push({"src": imgSrc, "name": "主图_" + (i + 1)});
@@ -298,7 +315,10 @@ let platform_gmarket = function (_url, result) {
 
 let platform_lightinthebox = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector(".widget.prod-info-title").innerText;
+    result.name = _url;
+    if (document.querySelector(".widget.prod-info-title")) {
+        result.name = document.querySelector(".widget.prod-info-title").innerText;
+    }
 
     // 主图
     var zhuEle = document.querySelectorAll(".left.carousel_img_wrapper .viewport li.item img")
@@ -319,10 +339,13 @@ let platform_lightinthebox = function (_url, result) {
 
 let platform_pinduoduo = function (_url, result) {
     // 商品名称
-    result.name = document.querySelector("#main span._1fdrZL9O.enable-select > span").innerText;
+    result.name = _url;
+    if (document.querySelector("#main span._1fdrZL9O.enable-select > span")) {
+        result.name = document.querySelector("#main span._1fdrZL9O.enable-select > span").innerText;
+    }
 
     // 主图
-    var zhuEle = document.querySelectorAll("#main > div > div._3-UgVhPL > div._2wJiTrdH > div._1fBWnMAg ._1bq9lpD4")
+    var zhuEle = document.querySelectorAll("#main > div > div._3-UgVhPL > div._2wJiTrdH > div._1fBWnMAg ._1bq9lpD4");
     zhuEle = Array.from(zhuEle).splice(1, zhuEle.length - 2)
     for (let i = 0; i < zhuEle.length; i++) {
         var imgSrc = zhuEle[i].getElementsByTagName("img")[0].src;
@@ -347,10 +370,13 @@ let platform_pinduoduo = function (_url, result) {
 
 let platform_weimob = function (_url, result) {
     // 商品名称
-    result.name = window.frames['bosCompatibleIframe'].document.getElementsByClassName('good-detail--title')[0].innerText;
+    result.name = _url;
+    if (window.frames['bosCompatibleIframe'].document.getElementsByClassName('good-detail--title')) {
+        result.name = window.frames['bosCompatibleIframe'].document.getElementsByClassName('good-detail--title')[0].innerText;
+    }
 
     // 主图
-    var zhuEle = window.frames['bosCompatibleIframe'].document.querySelectorAll("#goods-slider img")
+    var zhuEle = window.frames['bosCompatibleIframe'].document.querySelectorAll("#goods-slider img");
     for (let i = 0; i < zhuEle.length; i++) {
         var imgSrc = zhuEle[i].src;
         result.zhu.push({"src": imgSrc.substring(0, imgSrc.indexOf("?")), "name": "主图_" + (i + 1)});
