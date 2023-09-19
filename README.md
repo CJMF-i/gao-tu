@@ -50,7 +50,7 @@
 
 ---
 
-**2、拖拽安装方式**：[点击下载-拖拽安装版](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/gao-tu-bao-88%20.crx)
+**2、拖拽安装方式**：[点击下载-拖拽安装版](https://gitee.com/cjmf/gao-tu/releases/download/3.0.2/bihikmbakmidndeladidibcflonoeooj_main.crx)
 
 **安装方式：** 下载可能会被认为是危险文件，继续下载即可
 1. 复制链接，新建窗口访问，进入浏览器扩展界面：**chrome://extensions/**
