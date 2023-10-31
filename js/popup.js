@@ -126,19 +126,23 @@ btn2.onclick = function () {
 };
 
 function saveToZip(zip, imgUrls, index) {
-    getResources(index + 1, imgUrls[index].src, (data) => {
-        let suffix = data.type.split('/')[1];
-        if (suffix.toLocaleUpperCase() === 'JPEG' || suffix.toLocaleUpperCase() === 'AVIF') {
-            suffix = 'jpg';
+    getResources(index + 1, imgUrls[index].src, (data, success) => {
+        if (success) {
+            let suffix = data.type.split('/')[1];
+            if (suffix.toLocaleUpperCase() === 'JPEG' || suffix.toLocaleUpperCase() === 'AVIF') {
+                suffix = 'jpg';
+            }
+            let fileName = imgUrls[index].name;
+            zip.file(fileName + "." + suffix, data);
         }
-        let fileName = imgUrls[index].name;
-        zip.file(fileName + "." + suffix, data);
         index++;
         if (index >= imgUrls.length) {
             // 是否需要下载视频
             if (videoUrl && document.getElementsByName("videoSelect")[0].checked) {
-                getResources(index + 1, videoUrl, (data) => {
-                    zip.file(zipName + ".mp4", data);
+                getResources(index + 1, videoUrl, (data, success) => {
+                    if (success) {
+                        zip.file(zipName + ".mp4", data);
+                    }
                     zip.generateAsync({type: "blob"}).then(function (content) {
                         saveAs(content, zipName + ".zip");
                         status = 0;
@@ -164,9 +168,19 @@ function getResources(index, url, callback) {
     xhr.responseType = "blob";
     xhr.onload = function () {
         if (this.status == 200 || this.status == 304) {
-            callback(this.response);
+            callback(this.response, true);
         }
     };
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status !== 200) {
+                console.log('发生了错误：', xhr.status, xhr.statusText);
+                showMessage("有图片发生了错误，已为您跳过了错误图片的下载", 4);
+                callback("", false);
+            }
+        }
+    };
+
     xhr.send();
 }
 
